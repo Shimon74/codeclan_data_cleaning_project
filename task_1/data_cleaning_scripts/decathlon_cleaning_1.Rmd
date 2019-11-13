@@ -1,0 +1,72 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(here)
+```
+
+
+
+```{r}
+library(readr)
+library(tidyverse)
+
+
+```
+
+```{r}
+
+decathlon <- read_rds(here("raw_data/decathlon.rds"))
+```
+
+```{r}
+view(decathlon)
+```
+
+
+```{r}
+# create new column with names 
+
+decathlon_tbl <- as_tibble(rownames_to_column(decathlon))
+view(decathlon_tbl)
+
+
+```
+
+
+```{r}
+# rename columns
+
+decathlon_clean <- decathlon_tbl %>%
+  rename("name" = "rowname", 
+         "100_metre" = "100m",
+         "long_jump" = "Long.jump",
+         "shot_put" = "Shot.put",
+         "high_jump" = "High.jump",
+         "400_metre" = "400m",
+         "hurdle_110_metre" = "110m.hurdle",
+         "discus" = "Discus",
+         "pole_vault" = "Pole.vault",
+         "javeline" = "Javeline",
+         "1500_metre" = "1500m",
+         "rank" = "Rank",
+         "points" = "Points",
+         "competition" = "Competition")
+``` 
+
+
+```{r}
+view(decathlon_clean)
+```
+
+```{r}
+decathlon_clean
+```
+
+```{r}
+
+  
+```
+

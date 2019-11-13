@@ -1,0 +1,27 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1573561336745.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1965950483",
+    "id" : "4CEB9EB2",
+    "lastKnownWriteTime" : 1573636336,
+    "last_content_update" : 1573636336856,
+    "path" : "~/codeclan_work/codeclan_data_cleaning_project/task_1/data_cleaning_scripts/decathlon_cleaning_1.Rmd",
+    "project_path" : "data_cleaning_scripts/decathlon_cleaning_1.Rmd",
+    "properties" : {
+        "chunk_output_type" : "inline",
+        "cursorPosition" : "68,0",
+        "scrollLine" : "63",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
