@@ -1,0 +1,4 @@
+"0","```r
+grouped_alleg <- group_by(all_deaths, allegiances, nobility)
+grouped_alleg
+```"

@@ -1,0 +1,9 @@
+"0","```r
+
+noble_percentage <- all_deaths %>%
+  select(name, allegiances, nobility) %>%
+mutate(percent = (sum(allegiances)/length(allegiances))*100 ) %>%
+  group_by(allegiances)
+```"
+"1","Error in sum(allegiances) : invalid 'type' (character) of argument
+"

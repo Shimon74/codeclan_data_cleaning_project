@@ -1,0 +1,7 @@
+"0","```r
+
+group_by_first <- first_letter_column %>%
+  group_by(first_letter)
+
+group_by_first
+```"

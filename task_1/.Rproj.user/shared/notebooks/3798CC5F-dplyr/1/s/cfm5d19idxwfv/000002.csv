@@ -1,0 +1,4 @@
+"0","```r
+not_lannisters_females <- filter(all_deaths, allegiances != \"Lannister\", gender == 0)
+not_lannisters_females
+```"

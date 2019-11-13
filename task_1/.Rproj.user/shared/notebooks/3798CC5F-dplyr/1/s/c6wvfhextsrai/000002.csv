@@ -1,0 +1,4 @@
+"0","```r
+one_column <- select(all_deaths, book_of_death)
+one_column
+```"

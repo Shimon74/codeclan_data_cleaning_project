@@ -1,0 +1,6 @@
+"0","```r
+dbl_to_integer <- mutate_if(all_deaths,
+                            is.double,
+                            as.integer)
+dbl_to_integer
+```"

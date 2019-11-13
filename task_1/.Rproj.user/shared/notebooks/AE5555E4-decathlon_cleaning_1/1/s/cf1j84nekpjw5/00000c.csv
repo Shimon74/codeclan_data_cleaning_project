@@ -1,6 +1,7 @@
 "0","# rename columns"
 "0",""
 "0","decathlon_clean <- decathlon_tbl %>%"
+"0","  "
 "0","  rename(""name"" = ""rowname"", "
 "0","         ""100_metre"" = ""100m"","
 "0","         ""long_jump"" = ""Long.jump"","

@@ -1,0 +1,4 @@
+"0","```r
+char_books <- mutate_all(books, as.character)
+char_books
+```"

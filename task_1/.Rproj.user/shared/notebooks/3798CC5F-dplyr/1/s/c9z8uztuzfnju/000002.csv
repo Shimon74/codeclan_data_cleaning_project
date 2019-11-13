@@ -1,0 +1,4 @@
+"0","```r
+books <- select(all_deaths, book1_GoT, book2_CoK, book3_SoS, book4_FfC, book5_DwD)
+books
+```"

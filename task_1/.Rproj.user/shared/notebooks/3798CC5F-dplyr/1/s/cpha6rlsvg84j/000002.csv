@@ -1,0 +1,4 @@
+"0","```r
+nobility_logic_ <- mutate_at(all_deaths, \"nobility\", as.logical)
+nobility_logic_
+```"

@@ -1,0 +1,4 @@
+"0","```r
+first_letter_column <- rename(state_income, first_letter = Index)
+first_letter
+```"

@@ -1,0 +1,12 @@
+"0","```r
+
+noble_percentage <- all_deaths %>%
+  select(name, allegiances, nobility) %>%
+  filter(nobility ==1) %>%
+  group_by(allegiances)%>%
+summarise(total_count = n() ) %>%
+  mutate(percent = total_count/ sum(total_count) * 100) %>%
+  arrange(desc(percent))
+
+noble_percentage
+```"

@@ -31,15 +31,18 @@ view(decathlon)
 
 decathlon_tbl <- as_tibble(rownames_to_column(decathlon))
 view(decathlon_tbl)
+decathlon_tbl
 
 
 ```
+
 
 
 ```{r}
 # rename columns
 
 decathlon_clean <- decathlon_tbl %>%
+  
   rename("name" = "rowname", 
          "100_metre" = "100m",
          "long_jump" = "Long.jump",
@@ -65,8 +68,98 @@ view(decathlon_clean)
 decathlon_clean
 ```
 
+
+
+
 ```{r}
+
+#pivot to long format 
+
+decathlon_long <- decathlon_clean %>%
+  pivot_longer(cols = c("100_metre","long_jump", "shot_put","high_jump", "400_metre","hurdle_110_metre", "discus","pole_vault", "javeline", "1500_metre"), names_to = "event_type", values_to = "result")
+
+decathlon_long
+
+view(decathlon_long)
 
   
 ```
+
+```{r}
+#1.1.2.1------Who had the longest long jump seen in the data?
+
+max_long_jump <- decathlon_long %>%
+filter(event_type == "long_jump") %>%
+filter(result == max(result))
+
+
+
+max_long_jump
+
+```
+
+
+```{r}
+#1.1.2.2------What was the average 100m time in each competition?
+
+avg_100_metre <- decathlon_long %>%
+filter(event_type == "100_metre") %>%
+group_by (competition) %>%
+summarise  (mean (result))
+
+
+avg_100_metre
+```
+
+
+```{r}
+#1.1.2.3------Who had the highest total points across both competitions?
+
+max_total_points <- decathlon_long %>%
+filter(points == max(points)) %>%
+top_n(1)
+
+max_total_points
+
+```
+
+```{r}
+
+#1.1.2.4---What was the shot-put scores for the top three competitors in each competition?
+
+
+shot_put_top_three <- decathlon_long %>%
+filter(event_type == "shot_put") %>%
+group_by(competition) %>%
+filter(rank < 4)
+
+shot_put_top_three
+
+
+```
+
+
+```{r}
+
+#1.1.2.5---------What was the average points for competitors who ran the 400m in less than 50 seconds vs. those than ran 400m in more than 50 seconds?
+
+avg_under_50_vs_over <- decathlon_long %>%
+filter(event_type == "400_metre") %>%
+group_by(result < 50) %>%
+summarise(mean(result))
+
+
+
+
+avg_under_50_vs_over
+```
+
+
+```{r}
+
+
+
+```
+
+
 

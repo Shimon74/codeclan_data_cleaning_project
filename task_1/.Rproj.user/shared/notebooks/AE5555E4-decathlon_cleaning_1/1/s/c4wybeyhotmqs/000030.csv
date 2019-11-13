@@ -1,4 +1,0 @@
-"0","max_long_jump <- decathlon_clean %>% "
-"0","  max(long_jump)"
-"2","Error in function_list[[k]](value) : object 'long_jump' not found
-"

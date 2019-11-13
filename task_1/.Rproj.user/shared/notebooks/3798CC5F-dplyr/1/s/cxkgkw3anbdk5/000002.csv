@@ -1,0 +1,5 @@
+"0","```r
+test <- mutate(all_deaths, 
+       intro_logical = is.na(book_intro_chapter))
+test
+```"

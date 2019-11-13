@@ -1,0 +1,7 @@
+"0",""
+"0","#pivot to long format "
+"0",""
+"0","decathlon_long <- decathlon_clean %>%"
+"0","  pivot_longer(cols = c(""100_metre"",""long_jump"", ""shot_put"",""high_jump"", ""400_metre"",""hurdle_110_metre"", ""discus"",""pole_vault"", ""javeline"", ""1500_metre""), names_to = ""event_type"", values_to = ""result"")"
+"0",""
+"0","decathlon_long"

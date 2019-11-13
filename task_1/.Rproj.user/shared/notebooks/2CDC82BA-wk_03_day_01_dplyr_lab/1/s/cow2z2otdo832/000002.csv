@@ -1,0 +1,5 @@
+"0","```r
+filter_by_c <- filter(first_letter_column, first_letter == \"C\")
+
+filter_by_c
+```"

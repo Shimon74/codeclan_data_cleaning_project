@@ -1,0 +1,7 @@
+"0","```r
+
+desc_income_2007 <- filter_by_c %>%
+  arrange(desc(Y2007))
+
+desc_income_2007
+```"

@@ -1,0 +1,6 @@
+"0","#-----write to a csv file to clean data folder"
+"0",""
+"0","decathlon_long %>%"
+"0","  write_excel_csv(""/Users/shimonmir/codeclan_work/codeclan_data_cleaning_project/task_1/clean_data/decathlon_clean.csv"")  "
+"0",""
+"0",""

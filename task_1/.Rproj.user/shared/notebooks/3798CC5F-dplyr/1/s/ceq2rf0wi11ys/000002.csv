@@ -1,0 +1,5 @@
+"0","```r
+
+arrange(all_deaths, gender) %>%
+  select(name, gender)
+```"

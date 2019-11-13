@@ -1,5 +1,0 @@
-"0",""
-"0","decathlon_tbl <- as_tibble(rownames_to_column(decathlon))"
-"0","view(decathlon_tbl)"
-"0",""
-"0",""

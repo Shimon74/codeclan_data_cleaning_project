@@ -1,0 +1,4 @@
+"0","```r
+
+mutate(all_deaths, intro_chapter_logical = if_else(is.na(book_intro_chapter), FALSE, TRUE))
+```"

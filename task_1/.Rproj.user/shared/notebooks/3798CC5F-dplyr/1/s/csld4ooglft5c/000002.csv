@@ -1,0 +1,7 @@
+"0","```r
+
+deaths_grouped <- all_deaths %>%
+  select(name,allegiances, year_of_death) %>%
+  group_by(allegiances)
+deaths_grouped
+```"

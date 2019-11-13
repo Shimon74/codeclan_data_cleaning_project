@@ -1,0 +1,6 @@
+"0","```r
+
+char_books2 <- mutate_at(all_deaths,
+                         c(\"book1_GoT\", \"book2_CoK\", \"book3_SoS\", \"book4_FfC\", \"book5_DwD\"), as.character)
+char_books2
+```"

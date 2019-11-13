@@ -1,0 +1,13 @@
+"0","```r
+rescues_cat <- read_csv(\"data/edin_rescues.csv\")
+```"
+"1","Parsed with column specification:
+cols(
+  coat = [31mcol_character()[39m,
+  weight = [32mcol_double()[39m,
+  likes = [32mcol_double()[39m
+)
+"
+"0","```r
+head(rescues_cat)
+```"

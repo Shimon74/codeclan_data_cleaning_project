@@ -1,0 +1,8 @@
+"0","#1.1.2.3------Who had the highest total points across both competitions?"
+"0",""
+"0","max_total_points <- decathlon_long %>%"
+"0","  filter(points == max(points)) %>%"
+"0","  top_n(1)"
+"2","Selecting by result
+"
+"0","max_total_points"

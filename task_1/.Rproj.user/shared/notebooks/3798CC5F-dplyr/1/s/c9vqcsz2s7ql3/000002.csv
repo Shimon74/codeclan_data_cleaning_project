@@ -1,0 +1,4 @@
+"0","```r
+summarise(deaths_grouped, 
+          count = n() )
+```"

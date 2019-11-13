@@ -1,0 +1,6 @@
+"0","```r
+deaths <- select(all_deaths, name, allegiances, gender, nobility, year_of_death)
+names(deaths)
+```"
+"1","[1] \"name\"          \"allegiances\"   \"gender\"        \"nobility\"      \"year_of_death\"
+"

@@ -1,0 +1,6 @@
+"0","```r
+
+deaths_year <- mutate(all_deaths, year_survived = year_of_death - 298)
+
+deaths_year %>% select(year_of_death, year_survived)
+```"

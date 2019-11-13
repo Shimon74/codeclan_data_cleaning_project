@@ -1,0 +1,6 @@
+"0","```r
+if_books <- mutate_if(all_deaths, 
+                      is.double,
+                      as.character)
+if_books
+```"

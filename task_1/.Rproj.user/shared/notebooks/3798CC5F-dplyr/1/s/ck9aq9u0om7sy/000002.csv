@@ -1,0 +1,4 @@
+"0","```r
+xy_tibble <- tibble(x = 1:5, y = x*2)
+xy_tibble
+```"

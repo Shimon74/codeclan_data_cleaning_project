@@ -1,0 +1,9 @@
+"0","```r
+mean_2008 <- filter_by_c %>%
+  summarise(mean = mean(Y2008))
+
+median_2008 <- filter_by_c %>%
+  summarise(median(Y2008))
+
+mean_2008
+```"

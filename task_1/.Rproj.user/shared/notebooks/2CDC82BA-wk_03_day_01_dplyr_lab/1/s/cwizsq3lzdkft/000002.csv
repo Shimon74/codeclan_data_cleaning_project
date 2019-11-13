@@ -1,0 +1,6 @@
+"0","```r
+income_above <- filter_by_c %>%
+  filter(Y2007 > 1900000) 
+
+income_above
+```"

@@ -1,0 +1,5 @@
+"0","```r
+
+lannisters <- filter(all_deaths, allegiances == \"Lannister\")
+lannisters
+```"
