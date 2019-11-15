@@ -1,0 +1,6 @@
+"0","## pivot "
+"0",""
+"0","candy_2_long <- candy_2_tidy %>%"
+"0","  pivot_longer(cols = 5:103, names_to = ""candy_type"", values_to = ""response"")"
+"0",""
+"0","candy_2_long"

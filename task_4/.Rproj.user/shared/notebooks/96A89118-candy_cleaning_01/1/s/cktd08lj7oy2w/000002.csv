@@ -1,0 +1,3 @@
+"0","candy_joined <- bind_rows(candy_1_long, candy_2_long, candy_3_long)"
+"0",""
+"0","view(candy_joined)"

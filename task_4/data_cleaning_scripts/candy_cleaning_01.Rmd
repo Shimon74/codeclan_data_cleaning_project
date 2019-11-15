@@ -1,0 +1,294 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(readr)
+library(tidyverse)
+```
+
+```{r}
+library(here)
+```
+
+```{r}
+library(janitor)
+library(stringr)
+```
+
+
+```{r}
+library(readxl)
+```
+
+```{r}
+
+candy_1 <- read_xlsx(here("/raw_data/boing-boing-candy-2015.xlsx"))
+candy_2 <- read_xlsx(here("/raw_data/boing-boing-candy-2016.xlsx"))
+candy_3 <- read_xlsx(here("/raw_data/boing-boing-candy-2017.xlsx"))
+
+
+
+
+```
+
+```{r}
+view(candy_1)
+view(candy_2)
+```
+
+```{r}
+candy_1
+
+```
+
+
+```{r}
+candy_1_clean_names <- clean_names(candy_1)
+candy_1_clean_names
+```
+
+
+```{r}
+candy_1_less_columns <- candy_1_clean_names %>%
+  select(-contains("timestamp"))%>%
+  select(-contains("which_day")) %>%
+  select(-contains("please")) %>%
+  select(-contains("tears_of_sadness")) %>%
+  select(-contains("dress_that_went_viral")) %>%
+  select(-contains("fill_in_the_blank")) %>%
+  select(-contains("favourite_font")) %>%
+  select(-contains("squint_really_hard")) %>%
+  select(-contains("betty_or_veronica"))%>%
+  select(-contains("guess"))
+
+candy_1_less_columns
+```
+
+
+```{r}
+candy_1_tidy <- candy_1_less_columns %>%
+  rename("going_out" = starts_with("are_you_going_actually")) %>%
+  
+  ## add year column
+  
+  add_column("year" = 2015) %>%
+  
+  ## add column "you_gender", "country", as ....to match varaiables
+  
+  add_column("your_gender" = "unknown", "country" = "unavailable") %>%
+  
+   ## how_old changed to age
+  
+  rename("age" = "how_old_are_you") %>%
+  
+  ## try alternate
+  
+  rename("100_grand_bar" = "x100_grand_bar") 
+
+
+
+candy_1_tidy
+```
+
+```{r}
+names(candy_1_tidy)
+```
+
+```{r}
+names(candy_1_tidy)
+
+## time to pivot
+## if source data changes, check col numbers match candy types before pivot 
+
+candy_1_long <- candy_1_tidy %>%
+  pivot_longer(cols = 3:97, names_to = "candy_type", values_to = "response")
+
+candy_1_long
+
+
+```
+
+
+
+###CANDY_2###
+
+```{r}
+candy_2
+
+```
+
+
+```{r}
+##janitor: clean_names
+
+candy_2_clean_names <- clean_names(candy_2)
+```
+
+
+```{r}
+names(candy_2_clean_names)
+```
+
+
+```{r}
+candy_2_less_columns <- candy_2_clean_names %>%
+  select(-contains("timestamp"))%>%
+  select(-contains("which_state_province_county_do_you_live_in")) %>%
+  select(-contains("which_day")) %>%
+  select(-contains("please")) %>%
+  select(-contains("tears_of_sadness")) %>%
+  select(-contains("dress_that_went_viral")) %>%
+  select(-contains("fill_in_the_blank")) %>%
+  select(-contains("favourite_font")) %>%
+  select(-contains("squint_really_hard")) %>%
+  select(-contains("do_you_eat_apples")) %>%
+  select(-contains("season_3_dvd")) %>%
+  select(-contains("different_websites")) %>%
+  select(-contains("patties_ignore")) %>%
+  select(-contains("betty_or_veronica"))%>%
+  select(-contains("guess"))
+
+candy_2_less_columns
+```
+
+```{r}
+names(candy_2_less_columns)
+```
+
+
+```{r}
+candy_2_tidy <- candy_2_less_columns %>%
+  rename("going_out" = starts_with("are_you_going_actually")) %>%
+  
+  ## add year column
+  add_column("year" = 2016)  %>% 
+  ## rename common columns
+  
+  rename("age" = "how_old_are_you") %>%
+  rename("country" = 4) %>%
+  rename("100_grand_bar" = 5)
+
+candy_2_tidy
+
+```
+
+```{r}
+#check column names/ numbers before pivot
+
+names(candy_2_tidy)
+```
+
+
+
+```{r}
+## pivot 
+
+candy_2_long <- candy_2_tidy %>%
+  pivot_longer(cols = 5:103, names_to = "candy_type", values_to = "response")
+
+candy_2_long
+```
+
+##CANDY_3##
+
+```{r}
+##check names
+
+names(candy_3)
+```
+
+
+```{r}
+candy_3_clean_names <- clean_names(candy_3)
+candy_3_clean_names
+```
+
+
+```{r}
+names(candy_3_clean_names)
+```
+
+
+```{r}
+candy_3_less <- candy_3_clean_names %>%
+  select(-1, -6, -c(110:120))
+
+
+names(candy_3_less)
+```
+
+
+
+
+```{r}
+candy_3_tidy <- candy_3_less %>%
+  #rename to match format
+  rename("going_out" = 1) %>%
+  rename("your_gender" = 2) %>%
+  rename("age" = 3) %>%
+  rename("country" = 4) %>%
+##add "year" = 2017 column
+  add_column("year" = 2017)
+
+  
+  
+  
+```
+
+
+```{r}
+names(candy_3_tidy)
+```
+
+
+
+```{r}
+
+candy_3_long <- candy_3_tidy %>%
+  pivot_longer(cols = 5:107, names_to = "candy_type", values_to = "response")
+
+
+candy_3_long
+```
+
+```{r}
+
+## test to split the q6_candy_type column
+## why is th "test" column showing just the first word?
+
+
+candy_3_long_q_sep <- candy_3_long %>%
+  separate(candy_type, c("question", "test"), sep = "_")
+
+head(candy_3_long_q_sep)
+
+view(candy_3_long_q_sep)
+
+
+```
+
+
+
+
+
+##CANDY_JOINED##
+
+```{r}
+candy_joined <- bind_rows(candy_1_long, candy_2_long, candy_3_long)
+
+view(candy_joined)
+```
+
+```{r}
+
+
+candy_type_fixed <- candy_joined$candy_type %>% str_replace_all("q6_","")
+
+candy_type_fixed
+```
+
+
+
+

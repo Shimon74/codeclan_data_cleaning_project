@@ -1,0 +1,6 @@
+"0","```r
+
+inner_join(customers_adjusted, orders, by = c(\"this_is_an_identifier\" = \"customer_id\"))
+```"
+"1","Error: `by` can't contain join column `this_is_an_identifier` which is missing from LHS
+"
